@@ -1,0 +1,39 @@
+PODS:
+  - Alamofire (5.10.2)
+  - Localize-Swift (3.2.0):
+    - Localize-Swift/LocalizeSwiftCore (= 3.2.0)
+    - Localize-Swift/UIKit (= 3.2.0)
+  - Localize-Swift/LocalizeSwiftCore (3.2.0)
+  - Localize-Swift/UIKit (3.2.0):
+    - Localize-Swift/LocalizeSwiftCore
+  - SDWebImage (5.21.0):
+    - SDWebImage/Core (= 5.21.0)
+  - SDWebImage/Core (5.21.0)
+  - SVProgressHUD (2.2.5)
+  - SwiftyJSON (5.0.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.10.2)
+  - Localize-Swift (~> 3.2.0)
+  - SDWebImage (~> 5.21.0)
+  - SVProgressHUD (~> 2.2.5)
+  - SwiftyJSON (~> 5.0.1)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Localize-Swift
+    - SDWebImage
+    - SVProgressHUD
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
+  Localize-Swift: 6f4475136bdb0d7b2882ea3d4ea919d70142b232
+  SDWebImage: f84b0feeb08d2d11e6a9b843cb06d75ebf5b8868
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
+
+PODFILE CHECKSUM: d249ff1b10c23ba88a5904e25bb4f17960961862
+
+COCOAPODS: 1.16.2

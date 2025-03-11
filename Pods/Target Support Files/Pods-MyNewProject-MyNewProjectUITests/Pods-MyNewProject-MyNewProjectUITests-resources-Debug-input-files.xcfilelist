@@ -1,0 +1,7 @@
+${PODS_ROOT}/Target Support Files/Pods-MyNewProject-MyNewProjectUITests/Pods-MyNewProject-MyNewProjectUITests-resources.sh
+${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle
+${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle
+${PODS_ROOT}/SVProgressHUD/SVProgressHUD/PrivacyInfo.xcprivacy
+${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON/SwiftyJSON.bundle
+${PODS_ROOT}/YouTubePlayer/YouTubePlayer/YouTubePlayer/YTPlayer.html

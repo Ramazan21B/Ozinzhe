@@ -8,7 +8,7 @@
 import UIKit
 
 class FavoriteTableViewController: UITableViewController {
-
+    var arrayFavorite = ["Image1", "Image2", "Image3"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,23 +23,27 @@ class FavoriteTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return arrayFavorite.count
     }
 
-    /*
+  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MovieTableViewCell
 
         // Configure the cell...
+        cell.setData(movie: arrayFavorite[indexPath.row])
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        153
+    }
 
     /*
     // Override to support conditional editing of the table view.
