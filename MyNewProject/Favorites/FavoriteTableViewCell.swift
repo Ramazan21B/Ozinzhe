@@ -1,13 +1,13 @@
 //
-//  MovieTableViewCell.swift
+//  FavoriteTableViewCell.swift
 //  MyNewProject
 //
-//  Created by Aitzhan Ramazan on 26.02.2025.
+//  Created by Aitzhan Ramazan on 09.04.2025.
 //
 
 import UIKit
 
-class MovieTableViewCell: UITableViewCell {
+class FavoriteTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
@@ -24,7 +24,10 @@ class MovieTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func setData(movie: String){
-        posterImageView.image = UIImage(named: movie)
+    func setData(movie: Movie) {
+        posterImageView.sd_setImage(with: URL(string: movie.poster_link), completed: nil)
+        
+        nameLabel.text = movie.name
+        yearLabel.text = "\(movie.year) • \(movie.producer) • \(movie.seriesCount) серия"
     }
 }

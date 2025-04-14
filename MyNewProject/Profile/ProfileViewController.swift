@@ -8,22 +8,18 @@
 import UIKit
 import Localize_Swift
 class ProfileViewController: UIViewController, LanguageProtocol {
+    
     func languageDidChange() {
         configureViews()
     }
     
     @IBOutlet weak var myProfileLabel: UILabel!
-    
     @IBOutlet weak var languageButton: UIButton!
     @IBOutlet weak var languageLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    override func viewDidAppear(_ animated: Bool) {
-      
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         configureViews()
@@ -43,6 +39,7 @@ class ProfileViewController: UIViewController, LanguageProtocol {
             languageLabel.text = "Русский"
         }
     }
+    
     @IBAction func languageShow(_ sender: Any) {
         let languageVC = storyboard?.instantiateViewController(identifier: "LanguageViewController") as! LanguageViewController
         
@@ -52,8 +49,16 @@ class ProfileViewController: UIViewController, LanguageProtocol {
         
         present(languageVC, animated: true, completion: nil)
     }
+    
+    
     func languageDidChange(_ category: String) {
         configureViews()
+    }
+    @IBAction func logOutButton(_ sender: Any) {
+        let logOut = self.storyboard?.instantiateViewController(withIdentifier: "LogOutViewController") as! LogOutViewController
+        logOut.modalPresentationStyle = .overFullScreen
+        
+        self.present(logOut, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

@@ -11,6 +11,7 @@ import Localize_Swift
 protocol LanguageProtocol{
     func languageDidChange()
 }
+
 class LanguageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate{
     
     
@@ -20,6 +21,7 @@ class LanguageViewController: UIViewController, UITableViewDelegate, UITableView
     
     var delegate : LanguageProtocol?
     let languageArray = [["English", "en"], ["Қазақша", "kk"], ["Русский", "ru"]]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
