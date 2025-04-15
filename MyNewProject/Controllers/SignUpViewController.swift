@@ -81,10 +81,11 @@ class SignUpViewController: UIViewController {
     
     @IBAction func showPassword(_ sender: Any) {
         signUpPassword.isSecureTextEntry = !signUpPassword.isSecureTextEntry
-        
-        repeatSignUpPassword.isSecureTextEntry = !repeatSignUpPassword.isSecureTextEntry
     }
     
+    @IBAction func repeatShowPassword(_ sender: Any){
+        repeatSignUpPassword.isSecureTextEntry = !repeatSignUpPassword.isSecureTextEntry
+    }
     @IBAction func signInButton(_ sender: Any) {
         let signInVC = storyboard?.instantiateViewController(withIdentifier: "SignInViewController")
         self.navigationController?.pushViewController(signInVC!, animated: true)

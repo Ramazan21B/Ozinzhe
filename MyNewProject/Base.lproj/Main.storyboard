@@ -699,7 +699,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="Show"/>
                                 <connections>
-                                    <action selector="showPassword:" destination="kz3-Py-SQy" eventType="touchUpInside" id="y0p-T3-j4j"/>
+                                    <action selector="repeatShowPassword:" destination="kz3-Py-SQy" eventType="touchUpInside" id="DZa-cP-fdv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="600-mS-7o0">
