@@ -8,10 +8,9 @@
 import UIKit
 
 class LogOutViewController: UIViewController, UIGestureRecognizerDelegate {
+    
     @IBOutlet weak var backgroundView: UIView!
-    
     @IBOutlet weak var logOutButton: UIButton!
-    
     @IBOutlet weak var logOutLabel: UILabel!
     
     var viewTranslation = CGPoint(x: 0, y: 0)

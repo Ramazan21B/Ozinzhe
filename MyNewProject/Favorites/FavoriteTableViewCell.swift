@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoriteTableViewCell: UITableViewCell {
+class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
@@ -29,5 +29,6 @@ class FavoriteTableViewCell: UITableViewCell {
         
         nameLabel.text = movie.name
         yearLabel.text = "\(movie.year) • \(movie.producer) • \(movie.seriesCount) серия"
+//        yearLabel.text = "\(movie.year)"
     }
 }

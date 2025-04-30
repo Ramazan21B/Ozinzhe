@@ -36,6 +36,7 @@ class LanguageViewController: UIViewController, UITableViewDelegate, UITableView
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissView))
         tap.delegate = self
         view.addGestureRecognizer(tap)
+        
     }
     
     @objc func dismissView(){

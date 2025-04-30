@@ -84,7 +84,7 @@ import SwiftyJSON
 //        ],
 //        "favorite": true
 
-class Movie {
+class Movie{
     public var id: Int = 0
     public var movieType: String = ""
     public var name: String = ""
@@ -108,6 +108,9 @@ class Movie {
     public var categories: [Category] = []
     public var favorite: Bool = false
     
+    init() {
+        // Empty initializer
+    }
     init(json: JSON) {
         if let temp = json["id"].int {
             self.id = temp

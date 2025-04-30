@@ -10,16 +10,19 @@ import SVProgressHUD
 import Alamofire
 import SwiftyJSON
 class FavoriteTableViewController: UITableViewController {
-    var favorite: [Movie] = []
+    var favorites: [Movie] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-       let MovieCellnib = UINib(nibName: "FavoriteCell", bundle: nil)
-        tableView.register(MovieCellnib, forCellReuseIdentifier: "FavoriteCell")
+//        let MovieCellnib = UINib(nibName: "MovieCell", bundle: nil)
+//        tableView.register(MovieCellnib, forCellReuseIdentifier: "MovieCell")
+//       let MovieCellnib = UINib(nibName: "FavoriteCell", bundle: nil)
+//        tableView.register(MovieCellnib, forCellReuseIdentifier: "FavoriteCell")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        downloadFavorites()
     }
 
     // MARK: - Table view data source
@@ -31,15 +34,15 @@ class FavoriteTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return favorite.count
+        return favorites.count
     }
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCell", for: indexPath) as! FavoriteTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieTableViewCell
 
         // Configure the cell...
-        cell.setData(movie: favorite[indexPath.row])
+        cell.setData(movie: favorites[indexPath.row])
 
         return cell
     }
@@ -49,7 +52,7 @@ class FavoriteTableViewController: UITableViewController {
     }
     
     func downloadFavorites() {
-        self.favorite.removeAll()
+        self.favorites.removeAll()
         
         SVProgressHUD.show()
         
@@ -73,7 +76,7 @@ class FavoriteTableViewController: UITableViewController {
                 if let array = json.array {
                     for item in array {
                         let movie = Movie(json: item)
-                        self.favorite.append(movie)
+                        self.favorites.append(movie)
                     }
                     self.tableView.reloadData()
                 } else {
@@ -88,6 +91,14 @@ class FavoriteTableViewController: UITableViewController {
                 SVProgressHUD.showError(withStatus: "\(ErrorString)")
             }
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movieInfoVC = self.storyboard?.instantiateViewController(identifier: "MovieInfoViewController") as! MovieInfoViewController
+        
+        movieInfoVC.movie = favorites[indexPath.row]
+        
+        navigationController?.show(movieInfoVC, sender: self)
     }
     /*
     // Override to support conditional editing of the table view.

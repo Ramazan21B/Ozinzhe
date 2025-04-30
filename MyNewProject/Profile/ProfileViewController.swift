@@ -16,9 +16,11 @@ class ProfileViewController: UIViewController, LanguageProtocol {
     @IBOutlet weak var myProfileLabel: UILabel!
     @IBOutlet weak var languageButton: UIButton!
     @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var modeSwitch: UISwitch!
+    @IBOutlet weak var darkModeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +62,21 @@ class ProfileViewController: UIViewController, LanguageProtocol {
         
         self.present(logOut, animated: true, completion: nil)
     }
+    
+    
+    @IBAction func switchChange(_ sender: UISwitch) {
+        let style: UIUserInterfaceStyle = sender.isOn ? .dark : .light
+            
+            // Apply to all windows (iOS 15+ safe)
+            if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                for window in scene.windows {
+                    window.overrideUserInterfaceStyle = style
+                }
+            }
+    }
+   
+}
+    
     /*
     // MARK: - Navigation
 
@@ -70,4 +87,4 @@ class ProfileViewController: UIViewController, LanguageProtocol {
     }
     */
 
-}
+

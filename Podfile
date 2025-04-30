@@ -11,7 +11,7 @@ target 'MyNewProject' do
     pod 'SDWebImage', '~> 5.21.0'
     pod 'SwiftyJSON', '~> 5.0.1'
     pod 'SVProgressHUD', '~> 2.2.5'
-
+    pod 'YouTubePlayer'
   target 'MyNewProjectTests' do
     inherit! :search_paths
     # Pods for testing

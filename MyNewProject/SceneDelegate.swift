@@ -20,18 +20,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.self.window = window
         
         //guard let _ = (scene as? UIWindowScene) else { return }
-//        if let windowScene = scene as? UIWindowScene {
-//            if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
-//                Storage.sharedInstance.accessToken = accessToken
-//                
-//                    self.window = UIWindow(windowScene: windowScene)
-//                    let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-//                    let viewController = storyboard.instantiateViewController(withIdentifier:
-//                                              "TabBarController") as! TabBarController
-//                    self.window?.rootViewController = viewController
-//                    self.window?.makeKeyAndVisible()
-//                }
-//            }
+        if let windowScene = scene as? UIWindowScene {
+            if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+                Storage.sharedInstance.accessToken = accessToken
+                
+                    self.window = UIWindow(windowScene: windowScene)
+                    let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier:
+                                              "TabBarController") as! TabBarController
+                    self.window?.rootViewController = viewController
+                    self.window?.makeKeyAndVisible()
+                }
+            }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
