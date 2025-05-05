@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import SVProgressHUD
 import SwiftyJSON
-class MainPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MainPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MovieProtocol {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -288,7 +288,7 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITableVi
             let cell = tableView.dequeueReusableCell(withIdentifier: "mainBannerCell", for: indexPath) as! MainBannerTableViewCell
             
             cell.setData(mainMovie: mainMovies[indexPath.row])
-            
+            cell.delegate = self
             return cell
         }
         //userhistory
@@ -297,6 +297,7 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITableVi
             let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! HistoryTableViewCell
             
             cell.setData(mainMovie: mainMovies[indexPath.row])
+            cell.delegate = self
             
             return cell
         }
@@ -311,7 +312,7 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! MainTableViewCell
         
         cell.setData(mainMovie: mainMovies[indexPath.row])
-        
+        cell.delegate = self
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -339,7 +340,13 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITableVi
         
         navigationController?.show(categoryTableViewController, sender: self)
     }
-    //step5
+    
+    func didSelectMovie(movie: Movie){
+        let movieSelect = storyboard?.instantiateViewController(identifier: "MovieInfoViewController") as! MovieInfoViewController
+        movieSelect.movie = movie
+        navigationController?.pushViewController(movieSelect, animated: true)
+    }
+    
     
     /*
     // MARK: - Navigation

@@ -12,6 +12,7 @@ class HistoryTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var delegate: MovieProtocol?
     var mainMovie = MainMovies()
     
     override func awakeFromNib() {
@@ -59,6 +60,10 @@ class HistoryTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
             movieGenreNamelabel.text = ""
         }
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        delegate?.didSelectMovie(movie: mainMovie.movies[indexPath.row])
     }
 
 }

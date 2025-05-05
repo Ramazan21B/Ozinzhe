@@ -8,4 +8,5 @@
 "MY_PROFILE" = "My profile";
 "LANGUAGE" = "language";
 "CONNECTION_ERROR" = "Connection error";
-
+"SEARCH_TEXT_FIELD" = "Search";
+"DARK_MODE" = "Dark mode";

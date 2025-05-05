@@ -30,6 +30,7 @@ class ProfileViewController: UIViewController, LanguageProtocol {
     func configureViews(){
         myProfileLabel.text = "MY_PROFILE".localized()
         languageButton.setTitle("LANGUAGE".localized(), for: .normal)
+        darkModeLabel.text = "DARK_MODE".localized()
         
         if Localize.currentLanguage() == "kk"{
             languageLabel.text = "Қазақша"

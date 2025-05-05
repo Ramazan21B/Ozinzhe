@@ -32,7 +32,6 @@ class LeftAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
     }
 }
 class SearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
-  
     @IBOutlet weak var searchTextField: TextFieldWithPadding!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topLabel: UILabel!
@@ -44,6 +43,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     var categories: [Category] = []
     var movies: [Movie] = []
     
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,17 +51,25 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         hideKeyboardWhenTappedAround()
         configureViews()
         downloadCategories()
-        
+//        NotificationCenter.default.addObserver(self, selector: #selector(updateTexts), name: NSNotification.Name("LanguageChanged"), object: nil)
         // Do any additional setup after loading the view.
     }
-    
+    func refreshUI() {
+        // Call the same code from `configureViews()` to refresh the UI text after language change
+        configureViews()
+        
+        // If needed, trigger reloading of other data-dependent UI components (like tables, collection views, etc.)
+        collectionView.reloadData()
+        tableView.reloadData()
+    }
+
     func configureViews(){
         collectionView.delegate = self
         collectionView.dataSource = self
         
         
         //topLabel.text = "TOP_LABEL".localized()
-        //searchTextField.text = "SEARCH_TEXT_FIELD".localized()
+        searchTextField.placeholder = "SEARCH_TEXT_FIELD".localized()
         //navigationItem.title = "SEARCH_TITLE".localized()
         let layout = LeftAlignedCollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 16.0, left: 24.0, bottom: 16.0, right: 24.0)
@@ -82,6 +90,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         tableView.dataSource = self
         let MovieCellnib = UINib(nibName: "MovieCell", bundle: nil)
         tableView.register(MovieCellnib, forCellReuseIdentifier: "MovieCell")
+        
     }
     @IBAction func TextFieldEditingDidBegin(_ sender: TextFieldWithPadding) {
         sender.layer.borderColor = UIColor(red: 0.59, green: 0.33, blue: 0.94, alpha: 1.00).cgColor

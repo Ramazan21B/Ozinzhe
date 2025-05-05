@@ -1613,7 +1613,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Іздеу" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GeU-rB-S4U" customClass="TextFieldWithPadding" customModule="MyNewProject" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GeU-rB-S4U" customClass="TextFieldWithPadding" customModule="MyNewProject" customModuleProvider="target">
                                 <rect key="frame" x="24" y="127" width="273" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="b2Y-OC-PnV"/>

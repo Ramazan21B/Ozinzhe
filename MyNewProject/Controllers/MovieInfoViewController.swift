@@ -276,7 +276,6 @@ class MovieInfoViewController: UIViewController, UICollectionViewDelegate, UICol
         
         return cell
     }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.similarCollectionView {
             let movieinfoVC = storyboard?.instantiateViewController(withIdentifier: "MovieInfoViewController") as! MovieInfoViewController
@@ -287,5 +286,6 @@ class MovieInfoViewController: UIViewController, UICollectionViewDelegate, UICol
             navigationController?.show(movieinfoVC, sender: self)
         }
     }
+    
 }
 

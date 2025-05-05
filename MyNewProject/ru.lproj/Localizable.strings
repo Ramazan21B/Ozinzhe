@@ -8,4 +8,5 @@
 "MY_PROFILE" = "Мой профиль";
 "LANGUAGE" = "Язык";
 "CONNECTION_ERROR" = "Ошибка соединения";
-
+"SEARCH_TEXT_FIELD" = "Поиск";
+"DARK_MODE" = "Тёмный режим";

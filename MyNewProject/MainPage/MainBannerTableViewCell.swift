@@ -7,10 +7,10 @@
 
 import UIKit
 
-class MainBannerTableViewCell: UITableViewCell,  UICollectionViewDelegate, UICollectionViewDataSource{
-
+class MainBannerTableViewCell: UITableViewCell,  UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var delegate: MovieProtocol?
     var mainMovie = MainMovies()
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,5 +56,6 @@ class MainBannerTableViewCell: UITableViewCell,  UICollectionViewDelegate, UICol
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        delegate?.didSelectMovie(movie: mainMovie.bannerMovie[indexPath.row].movie)
     }
 }

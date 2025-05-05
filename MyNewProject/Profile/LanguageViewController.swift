@@ -72,11 +72,48 @@ class LanguageViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        Localize.setCurrentLanguage(languageArray[indexPath.row][1])
+//        delegate?.languageDidChange()
+//        dismiss(animated: true, completion: nil)
+//    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        Localize.setCurrentLanguage(languageArray[indexPath.row][1])
+//        // Post notification to update UI in all view controllers
+//        NotificationCenter.default.post(name: NSNotification.Name("LanguageChanged"), object: nil)
+//        delegate?.languageDidChange()
+//        dismiss(animated: true, completion: nil)
+//    }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        Localize.setCurrentLanguage(languageArray[indexPath.row][1])
+//        delegate?.languageDidChange()
+//        
+//        // Call refreshUI to update the UI immediately after language change
+//        if let searchVC = self.presentingViewController as? SearchViewController {
+//            searchVC.refreshUI()  // or call refreshUI on other relevant controllers
+//        }
+//        
+//        dismiss(animated: true, completion: nil)
+//    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Localize.setCurrentLanguage(languageArray[indexPath.row][1])
+        let selectedLanguage = languageArray[indexPath.row][1]
+        
+        // Change language using Localize
+        Localize.setCurrentLanguage(selectedLanguage)
+        
+        // Notify that language has changed
         delegate?.languageDidChange()
+        
+        // Now find the presenting view controller (SearchViewController or whichever view needs updating)
+        if let searchVC = self.presentingViewController as? SearchViewController {
+            searchVC.refreshUI()  // This will trigger the UI refresh on SearchViewController
+        }
+        
+        // Dismiss the language selection view
         dismiss(animated: true, completion: nil)
     }
+
     /*
     // MARK: - Navigation
 
